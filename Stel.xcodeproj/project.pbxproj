@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0F528F41AEAE31400FF2D37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F31AEAE31400FF2D37 /* main.m */; };
+		D0F528F71AEAE31400FF2D37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F61AEAE31400FF2D37 /* AppDelegate.m */; };
+		D0F528FA1AEAE31400FF2D37 /* Stel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F81AEAE31400FF2D37 /* Stel.xcdatamodeld */; };
+		D0F528FD1AEAE31400FF2D37 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528FC1AEAE31400FF2D37 /* MainViewController.m */; };
+		D0F529021AEAE31400FF2D37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F529011AEAE31400FF2D37 /* Images.xcassets */; };
+		D0F529051AEAE31400FF2D37 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F529031AEAE31400FF2D37 /* LaunchScreen.xib */; };
+		D0F529111AEAE31400FF2D37 /* StelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F529101AEAE31400FF2D37 /* StelTests.m */; };
+		D0F5291F1AEAF9CF00FF2D37 /* StartUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5291A1AEAF9CF00FF2D37 /* StartUpViewController.xib */; };
+		D0F529201AEAF9CF00FF2D37 /* StartUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F5291B1AEAF9CF00FF2D37 /* StartUpViewController.m */; };
+		D0F529211AEAF9CF00FF2D37 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F5291E1AEAF9CF00FF2D37 /* TitleView.m */; };
+		D0F529231AEB00ED00FF2D37 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F529221AEB00ED00FF2D37 /* MainViewController.xib */; };
+		D0F529281AEB100B00FF2D37 /* BAFluidView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F529251AEB100B00FF2D37 /* BAFluidView.m */; };
+		D0F529291AEB100B00FF2D37 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F529271AEB100B00FF2D37 /* Util.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0F5290B1AEAE31400FF2D37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0F528E61AEAE31400FF2D37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0F528ED1AEAE31400FF2D37;
+			remoteInfo = Stel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0F528EE1AEAE31400FF2D37 /* Stel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0F528F21AEAE31400FF2D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0F528F31AEAE31400FF2D37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0F528F51AEAE31400FF2D37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D0F528F61AEAE31400FF2D37 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D0F528F91AEAE31400FF2D37 /* Stel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stel.xcdatamodel; sourceTree = "<group>"; };
+		D0F528FB1AEAE31400FF2D37 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D0F528FC1AEAE31400FF2D37 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D0F529011AEAE31400FF2D37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D0F529041AEAE31400FF2D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D0F5290A1AEAE31400FF2D37 /* StelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0F5290F1AEAE31400FF2D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0F529101AEAE31400FF2D37 /* StelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StelTests.m; sourceTree = "<group>"; };
+		D0F5291A1AEAF9CF00FF2D37 /* StartUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartUpViewController.xib; sourceTree = "<group>"; };
+		D0F5291B1AEAF9CF00FF2D37 /* StartUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartUpViewController.m; sourceTree = "<group>"; };
+		D0F5291C1AEAF9CF00FF2D37 /* StartUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartUpViewController.h; sourceTree = "<group>"; };
+		D0F5291D1AEAF9CF00FF2D37 /* TitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
+		D0F5291E1AEAF9CF00FF2D37 /* TitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleView.m; sourceTree = "<group>"; };
+		D0F529221AEB00ED00FF2D37 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		D0F529241AEB100B00FF2D37 /* BAFluidView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAFluidView.h; sourceTree = "<group>"; };
+		D0F529251AEB100B00FF2D37 /* BAFluidView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAFluidView.m; sourceTree = "<group>"; };
+		D0F529261AEB100B00FF2D37 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		D0F529271AEB100B00FF2D37 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0F528EB1AEAE31400FF2D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0F529071AEAE31400FF2D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0F528E51AEAE31400FF2D37 = {
+			isa = PBXGroup;
+			children = (
+				D0F528F01AEAE31400FF2D37 /* Stel */,
+				D0F5290D1AEAE31400FF2D37 /* StelTests */,
+				D0F528EF1AEAE31400FF2D37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0F528EF1AEAE31400FF2D37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0F528EE1AEAE31400FF2D37 /* Stel.app */,
+				D0F5290A1AEAE31400FF2D37 /* StelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0F528F01AEAE31400FF2D37 /* Stel */ = {
+			isa = PBXGroup;
+			children = (
+				D0F5291A1AEAF9CF00FF2D37 /* StartUpViewController.xib */,
+				D0F5291B1AEAF9CF00FF2D37 /* StartUpViewController.m */,
+				D0F5291C1AEAF9CF00FF2D37 /* StartUpViewController.h */,
+				D0F5291D1AEAF9CF00FF2D37 /* TitleView.h */,
+				D0F5291E1AEAF9CF00FF2D37 /* TitleView.m */,
+				D0F528F51AEAE31400FF2D37 /* AppDelegate.h */,
+				D0F528F61AEAE31400FF2D37 /* AppDelegate.m */,
+				D0F529221AEB00ED00FF2D37 /* MainViewController.xib */,
+				D0F529241AEB100B00FF2D37 /* BAFluidView.h */,
+				D0F529251AEB100B00FF2D37 /* BAFluidView.m */,
+				D0F529261AEB100B00FF2D37 /* Util.h */,
+				D0F529271AEB100B00FF2D37 /* Util.m */,
+				D0F528FB1AEAE31400FF2D37 /* MainViewController.h */,
+				D0F528FC1AEAE31400FF2D37 /* MainViewController.m */,
+				D0F529011AEAE31400FF2D37 /* Images.xcassets */,
+				D0F529031AEAE31400FF2D37 /* LaunchScreen.xib */,
+				D0F528F81AEAE31400FF2D37 /* Stel.xcdatamodeld */,
+				D0F528F11AEAE31400FF2D37 /* Supporting Files */,
+			);
+			path = Stel;
+			sourceTree = "<group>";
+		};
+		D0F528F11AEAE31400FF2D37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0F528F21AEAE31400FF2D37 /* Info.plist */,
+				D0F528F31AEAE31400FF2D37 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0F5290D1AEAE31400FF2D37 /* StelTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0F529101AEAE31400FF2D37 /* StelTests.m */,
+				D0F5290E1AEAE31400FF2D37 /* Supporting Files */,
+			);
+			path = StelTests;
+			sourceTree = "<group>";
+		};
+		D0F5290E1AEAE31400FF2D37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0F5290F1AEAE31400FF2D37 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0F528ED1AEAE31400FF2D37 /* Stel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0F529141AEAE31400FF2D37 /* Build configuration list for PBXNativeTarget "Stel" */;
+			buildPhases = (
+				D0F528EA1AEAE31400FF2D37 /* Sources */,
+				D0F528EB1AEAE31400FF2D37 /* Frameworks */,
+				D0F528EC1AEAE31400FF2D37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stel;
+			productName = Stel;
+			productReference = D0F528EE1AEAE31400FF2D37 /* Stel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0F529091AEAE31400FF2D37 /* StelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0F529171AEAE31400FF2D37 /* Build configuration list for PBXNativeTarget "StelTests" */;
+			buildPhases = (
+				D0F529061AEAE31400FF2D37 /* Sources */,
+				D0F529071AEAE31400FF2D37 /* Frameworks */,
+				D0F529081AEAE31400FF2D37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0F5290C1AEAE31400FF2D37 /* PBXTargetDependency */,
+			);
+			name = StelTests;
+			productName = StelTests;
+			productReference = D0F5290A1AEAE31400FF2D37 /* StelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0F528E61AEAE31400FF2D37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Bryan Antigua";
+				TargetAttributes = {
+					D0F528ED1AEAE31400FF2D37 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					D0F529091AEAE31400FF2D37 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = D0F528ED1AEAE31400FF2D37;
+					};
+				};
+			};
+			buildConfigurationList = D0F528E91AEAE31400FF2D37 /* Build configuration list for PBXProject "Stel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0F528E51AEAE31400FF2D37;
+			productRefGroup = D0F528EF1AEAE31400FF2D37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0F528ED1AEAE31400FF2D37 /* Stel */,
+				D0F529091AEAE31400FF2D37 /* StelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0F528EC1AEAE31400FF2D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0F5291F1AEAF9CF00FF2D37 /* StartUpViewController.xib in Resources */,
+				D0F529231AEB00ED00FF2D37 /* MainViewController.xib in Resources */,
+				D0F529051AEAE31400FF2D37 /* LaunchScreen.xib in Resources */,
+				D0F529021AEAE31400FF2D37 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0F529081AEAE31400FF2D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0F528EA1AEAE31400FF2D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0F528F71AEAE31400FF2D37 /* AppDelegate.m in Sources */,
+				D0F529211AEAF9CF00FF2D37 /* TitleView.m in Sources */,
+				D0F529281AEB100B00FF2D37 /* BAFluidView.m in Sources */,
+				D0F528FA1AEAE31400FF2D37 /* Stel.xcdatamodeld in Sources */,
+				D0F528FD1AEAE31400FF2D37 /* MainViewController.m in Sources */,
+				D0F529201AEAF9CF00FF2D37 /* StartUpViewController.m in Sources */,
+				D0F528F41AEAE31400FF2D37 /* main.m in Sources */,
+				D0F529291AEB100B00FF2D37 /* Util.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0F529061AEAE31400FF2D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0F529111AEAE31400FF2D37 /* StelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0F5290C1AEAE31400FF2D37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0F528ED1AEAE31400FF2D37 /* Stel */;
+			targetProxy = D0F5290B1AEAE31400FF2D37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0F529031AEAE31400FF2D37 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0F529041AEAE31400FF2D37 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0F529121AEAE31400FF2D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D0F529131AEAE31400FF2D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0F529151AEAE31400FF2D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Stel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D0F529161AEAE31400FF2D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Stel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D0F529181AEAE31400FF2D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = StelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stel.app/Stel";
+			};
+			name = Debug;
+		};
+		D0F529191AEAE31400FF2D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = StelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stel.app/Stel";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0F528E91AEAE31400FF2D37 /* Build configuration list for PBXProject "Stel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0F529121AEAE31400FF2D37 /* Debug */,
+				D0F529131AEAE31400FF2D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0F529141AEAE31400FF2D37 /* Build configuration list for PBXNativeTarget "Stel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0F529151AEAE31400FF2D37 /* Debug */,
+				D0F529161AEAE31400FF2D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0F529171AEAE31400FF2D37 /* Build configuration list for PBXNativeTarget "StelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0F529181AEAE31400FF2D37 /* Debug */,
+				D0F529191AEAE31400FF2D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0F528F81AEAE31400FF2D37 /* Stel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0F528F91AEAE31400FF2D37 /* Stel.xcdatamodel */,
+			);
+			currentVersion = D0F528F91AEAE31400FF2D37 /* Stel.xcdatamodel */;
+			path = Stel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D0F528E61AEAE31400FF2D37 /* Project object */;
+}

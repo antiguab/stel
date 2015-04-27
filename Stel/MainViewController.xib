@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="VNM-84-cEf"/>
+                <outlet property="waterBottleView" destination="4Go-2W-FXF" id="lJc-OL-e1G"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartUpImage" translatesAutoresizingMaskIntoConstraints="NO" id="6TM-uE-g82">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-bN-Nhp">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VRf-Do-E0K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJf-ot-88x">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dTI-ji-CLw">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Go-2W-FXF" customClass="BAFluidView">
+                    <rect key="frame" x="225" y="75" width="150" height="450"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="AHD-cI-qJj"/>
+                        <constraint firstAttribute="height" constant="450" id="mac-6I-DDa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6TM-uE-g82" secondAttribute="trailing" id="07r-nc-9ZD"/>
+                <constraint firstAttribute="centerY" secondItem="3ui-bN-Nhp" secondAttribute="centerY" id="1QZ-Qf-gge"/>
+                <constraint firstAttribute="bottom" secondItem="3ui-bN-Nhp" secondAttribute="bottom" id="1jj-fv-vba"/>
+                <constraint firstItem="3ui-bN-Nhp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CR1-HN-RUe"/>
+                <constraint firstItem="6TM-uE-g82" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DhO-Cb-sKl"/>
+                <constraint firstAttribute="centerX" secondItem="6TM-uE-g82" secondAttribute="centerX" id="MUO-H8-XdC"/>
+                <constraint firstAttribute="centerY" secondItem="4Go-2W-FXF" secondAttribute="centerY" id="Pt9-hp-Z0R"/>
+                <constraint firstAttribute="centerX" secondItem="4Go-2W-FXF" secondAttribute="centerX" id="SEE-Kw-VWa"/>
+                <constraint firstAttribute="centerY" secondItem="6TM-uE-g82" secondAttribute="centerY" id="WdK-vA-nga"/>
+                <constraint firstAttribute="centerX" secondItem="3ui-bN-Nhp" secondAttribute="centerX" id="Xct-q5-wBX"/>
+                <constraint firstItem="6TM-uE-g82" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c0G-Yi-3xL"/>
+                <constraint firstAttribute="trailing" secondItem="3ui-bN-Nhp" secondAttribute="trailing" id="dTH-z3-uO4"/>
+                <constraint firstItem="3ui-bN-Nhp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="si8-qN-amB"/>
+                <constraint firstAttribute="bottom" secondItem="6TM-uE-g82" secondAttribute="bottom" id="wPT-FK-ixo"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="StartUpImage" width="802" height="466"/>
+    </resources>
+</document>
