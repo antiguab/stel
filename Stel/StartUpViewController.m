@@ -50,6 +50,7 @@
     CABasicAnimation *moveDown;
     moveDown = [CABasicAnimation animationWithKeyPath:@"position.y"];
     moveDown.byValue  = @250;
+    moveDown.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     moveDown.duration = 1.0;
     moveDown.removedOnCompletion = NO;
     moveDown.fillMode = kCAFillModeBoth;

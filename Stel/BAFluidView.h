@@ -37,4 +37,5 @@
 -  (id)initWithFrame:(CGRect)aRect maxAmplitude:(int)aMaxAmplitude minAmplitude:(int)aMinAmplitude amplitudeIncrement:(int)aAmplitudeIncrement startElevation:(NSNumber*)aStartElevation;
 -(void)fillTo:(float)percentage;
 -(void)keepStationary;
+-(void) startAnimation;
 @end

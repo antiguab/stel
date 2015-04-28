@@ -7,8 +7,13 @@
 //
 
 #import "MainViewController.h"
+#import "BAFluidView.h"
+#import "TotalBottlesView.h"
 
 @interface MainViewController ()
+
+@property BAFluidView *fluidView;
+@property TotalBottlesView *bottleProgressView;
 
 @end
 
@@ -19,26 +24,53 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.bluetoothButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bluetoothButton.layer.shadowOffset = CGSizeMake(2.0f,2.0f);
+    self.bluetoothButton.layer.masksToBounds = NO;
+    self.bluetoothButton.layer.shadowRadius = 10.0f;
+    self.bluetoothButton.layer.shadowOpacity = 0.7;
+    
+    self.settingsButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.settingsButton.layer.shadowOffset = CGSizeMake(2.0f,2.0f);
+    self.settingsButton.layer.masksToBounds = NO;
+    self.settingsButton.layer.shadowRadius = 10.0f;
+    self.settingsButton.layer.shadowOpacity = 0.7;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+
+
+
+}
+
 -(void)viewDidLayoutSubviews {
-    BAFluidView *fluidView = [[BAFluidView alloc] initWithFrame:self.waterBottleView.bounds startElevation:@0.0];
-    [fluidView fillTo:0.5];
-    UIImage *maskingImage = [UIImage imageNamed:@"waterBottleImage"];
-    CALayer *maskingLayer = [CALayer layer];
-
-    maskingLayer.frame = self.waterBottleView.bounds;
-    maskingLayer.contents = (id)[maskingImage CGImage];
-    self.waterBottleView.layer.mask = maskingLayer;
-
-    [self.waterBottleView addSubview:fluidView];
     
-    self.waterBottleView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.waterBottleView.layer.shadowOffset = CGSizeMake(15.0f,15.0f);
-    self.waterBottleView.layer.masksToBounds = NO;
-    self.waterBottleView.layer.shadowRadius = 5.0f;
-    self.waterBottleView.layer.shadowOpacity = 1.0;
+    if (!self.fluidView) {
+        self.fluidView = [[BAFluidView alloc] initWithFrame:self.waterBottleContainerView.bounds startElevation:@0.0];
+        [self.waterBottleContainerView addSubview:self.fluidView];
+        
+        UIImage *maskingImage = [UIImage imageNamed:@"waterBottleImage"];
+        CALayer *maskingLayer = [CALayer layer];
+        maskingLayer.frame = self.waterBottleContainerView.bounds;
+        maskingLayer.contents = (id)[maskingImage CGImage];
+        self.waterBottleContainerView.layer.mask = maskingLayer;
+        
+        [self.fluidView fillTo:0.6];
+        self.fluidView.fillAutoReverse = NO;
+        self.fluidView.fillRepeatCount = 0;
+        
+        [self.fluidView startAnimation];
+    }
+    
+    if(!self.bottleProgressView){
+        self.bottleProgressView = [[TotalBottlesView alloc] initWithFrame:self.totalBottlesContainerView.bounds];
+        [self.totalBottlesContainerView addSubview:self.bottleProgressView];
+        [self.bottleProgressView performSelector:@selector(animateAllBottles) withObject:nil afterDelay:1.0];
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {

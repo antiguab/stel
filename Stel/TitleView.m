@@ -53,6 +53,13 @@
 #pragma mark - Public
 
 - (void)animateTitle:(completionBlock)compblock{
+    
+    //adjust to center
+    CGFloat xAdjustment = CGRectGetWidth(self.frame)/2 - CGRectGetWidth(self.titlePath.bounds)/2;
+    CGAffineTransform translation = CGAffineTransformMakeTranslation(xAdjustment,0);
+    CGPathRef movedPath = CGPathCreateCopyByTransformingPath(self.titlePath.CGPath,&translation);
+    self.titlePath.CGPath = movedPath;
+    
     CAShapeLayer *titleLayer = [[CAShapeLayer alloc] init];
     titleLayer.path = self.titlePath.CGPath;
     titleLayer.strokeColor = self.textColor.CGColor;

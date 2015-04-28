@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BAFluidView.h"
+
+typedef void(^completionBlock)(BOOL finished);
+
 @interface MainViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet BAFluidView *waterBottleView;
+@property (strong, nonatomic) IBOutlet UIView *waterBottleContainerView;
+@property (strong, nonatomic) IBOutlet UIView *totalBottlesContainerView;
+@property (strong, nonatomic) IBOutlet UIButton *bluetoothButton;
+@property (strong, nonatomic) IBOutlet UIButton *settingsButton;
 
 @end
 

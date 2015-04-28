@@ -42,10 +42,10 @@
     for (int i = 0; i < 10; i++) {
         CGRect frame = CGRectMake(i*CGRectGetWidth(self.frame)/10, CGRectGetMinY(self.frame), CGRectGetWidth(self.frame)/10, CGRectGetHeight(self.frame));
         CAShapeLayer *bottle = [[CAShapeLayer alloc] init];
-        bottle.backgroundColor = [UIColor blackColor].CGColor;
+        bottle.backgroundColor = [UIColor whiteColor].CGColor;
         bottle.frame = frame;
         
-        UIImage *maskingImage = [UIImage imageNamed:@"waterBottleMask"];
+        UIImage *maskingImage = [UIImage imageNamed:@"waterBottleWholeImage"];
         CALayer *maskingLayer = [CALayer layer];
         
         maskingLayer.frame = bottle.bounds;
@@ -121,7 +121,6 @@
     int bottlesDrank = percentageDrank/10;
     int partialDrank = percentageDrank%10;
     
-    NSLog(@"bottles to fill %d", bottlesDrank);
     for (int i = 0; i < bottlesDrank; i++) {
         CGFloat startingPoint = (i*0.3);
         CAShapeLayer *bottle = [self.bottlesArray objectAtIndex:i];

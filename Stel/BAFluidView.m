@@ -78,7 +78,6 @@
         amplitudeIncrement = aAmplitudeIncrement;
         amplitudeArray = [self createAmplitudeOptions];
         startElevation = aStartElevation;
-        [self addAnimations];
     }
     return self;
 }
@@ -91,7 +90,6 @@
     if (self)
     {
         [self defaultInit];
-        [self addAnimations];
         
     }
     return self;
@@ -104,9 +102,7 @@
     if (self)
     {
         [self defaultInit];
-        startElevation = aStartElevation;
-        [self addAnimations];
-        
+        startElevation = aStartElevation;        
     }
     return self;
 }
@@ -117,6 +113,7 @@
     lineLayer = [CAShapeLayer layer];
     lineLayer.fillColor = [[Util UIColorFromHex:0x6BB9F0] CGColor];
     lineLayer.strokeColor = [[Util UIColorFromHex:0x6BB9F0] CGColor];
+
     //default wave properties
     self.fillAutoReverse = YES;
     self.fillRepeatCount = HUGE_VALF;
@@ -164,12 +161,12 @@
     [self fillTo:fillLevel];
 }
 
+- (void) startAnimation {
+    [self addAnimations];
+}
+
 -(void)addAnimations {
     startingAmplitude = maxAmplitude;
-    
-    //Wave Crest animation
-    [self updateWaveSegmentAnimation];
-    
     
     //Phase Shift Animation
     CAKeyframeAnimation *horizontalAnimation =
@@ -181,26 +178,22 @@
     horizontalAnimation.calculationMode = @"paced";
     [lineLayer addAnimation:horizontalAnimation forKey:@"horizontalAnimation"];
     
-    //Wave Motion Animations
-    fillLevel = 1.0;
+    //Wave Crest Animations
+    if (!fillLevel) {
+        fillLevel = 1.0;
+    }
     [self fillTo:fillLevel];
     waveCrestAnimation = [CAKeyframeAnimation animationWithKeyPath:@"path"];
     waveCrestAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     waveCrestAnimation.values = [self getBezierPathValues];
-    waveCrestAnimation.duration = 1.0;
+    waveCrestAnimation.duration = 0.5;
     waveCrestAnimation.removedOnCompletion = NO;
     waveCrestAnimation.fillMode = kCAFillModeForwards;
     waveCrestAnimation.delegate = self;
     [self updateWaveSegmentAnimation];
-    [NSTimer scheduledTimerWithTimeInterval:1.0
-                                     target:self
-                                   selector:@selector(updateWaveSegmentAnimation)
-                                   userInfo:nil
-                                    repeats:YES];
-    
+
     //add sublayer to view
     [self.layer addSublayer:lineLayer];
-    NSLog(@"%@",NSStringFromCGRect(lineLayer.frame));
 }
 
 -(void)keepStationary{
@@ -212,9 +205,9 @@
     CAKeyframeAnimation *verticalAnimation =
     [CAKeyframeAnimation animationWithKeyPath:@"position"];
     float finalPosition;
-    finalPosition = (1.0 - percentage)*self.frame.size.height - (1 - [startElevation floatValue]/100)*self.frame.size.height;
+    finalPosition = (1.0 - percentage)*self.frame.size.height - (1 - [startElevation floatValue]/100)*self.frame.size.height - maxAmplitude;
 
-    verticalAnimation.values =  @[(id)[NSValue valueWithCGPoint:lineLayer.position],(id)[NSValue valueWithCGPoint:CGPointMake(lineLayer.position.x, finalPosition - maxAmplitude)]];
+    verticalAnimation.values =  @[(id)[NSValue valueWithCGPoint:lineLayer.position],(id)[NSValue valueWithCGPoint:CGPointMake(lineLayer.position.x, finalPosition + maxAmplitude)]];
     verticalAnimation.additive = true;
     verticalAnimation.duration = 7*percentage;
     verticalAnimation.autoreverses = self.fillAutoReverse;
@@ -227,9 +220,14 @@
 
 -(void) updateWaveSegmentAnimation{
     //Wave Crest animation
+    [CATransaction begin];
     [lineLayer removeAnimationForKey:@"waveSegmentAnimation"];
     waveCrestAnimation.values = [self getBezierPathValues];
+    [CATransaction setCompletionBlock:^{
+        [self updateWaveSegmentAnimation];
+    }];
     [lineLayer addAnimation:waveCrestAnimation forKey:@"waveSegmentAnimation"];
+    [CATransaction commit];
 }
 
 - (NSArray*) getBezierPathValues{
