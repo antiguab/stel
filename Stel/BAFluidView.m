@@ -125,7 +125,7 @@
     minAmplitude = 5;
     startingAmplitude = maxAmplitude;
     waveLength = 320;
-    startElevation = @50;
+    startElevation = @0;
     finalX = self.frame.origin.x + 2*waveLength;
  
     //if wavelength is shorter than the view, keep extending the wave

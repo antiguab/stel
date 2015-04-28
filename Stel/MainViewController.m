@@ -24,6 +24,7 @@
 
 -(void)viewDidLayoutSubviews {
     BAFluidView *fluidView = [[BAFluidView alloc] initWithFrame:self.waterBottleView.bounds startElevation:@0.0];
+    [fluidView fillTo:0.5];
     UIImage *maskingImage = [UIImage imageNamed:@"waterBottleImage"];
     CALayer *maskingLayer = [CALayer layer];
 
