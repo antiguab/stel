@@ -12,5 +12,6 @@
 @interface StartUpViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet TitleView *titleView;
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
