@@ -24,27 +24,33 @@
 #import "Util.h"
 
 @interface BAFluidView()
-{
-    CAShapeLayer *lineLayer;
-    int finalX;
-    
-    NSArray *amplitudeArray;
-    int amplitudeIncrement;
-    int maxAmplitude;
-    int minAmplitude;
-    int startingAmplitude;
-    NSNumber* startElevation;
-    NSNumber* fillLevel;
-    int waveLength;//** 2 UIBezierPaths = 1 wavelength
-    UIView *rootView;
-    CAKeyframeAnimation *waveCrestAnimation;
 
-    
+@property (strong,nonatomic) UIView *rootView;
 
-}
+@property (strong,nonatomic) CAShapeLayer *lineLayer;
+
+@property (strong,nonatomic) NSArray *amplitudeArray;
+@property (assign,nonatomic) int startingAmplitude;
+@property (assign,nonatomic) int amplitudeIncrement;
+@property (assign,nonatomic) int maxAmplitude;
+@property (assign,nonatomic) int minAmplitude;
+
+@property (strong,nonatomic) NSNumber* startElevation;
+@property (strong,nonatomic) NSNumber* fillLevel;
+@property (assign,nonatomic) BOOL initialFill;
+
+
+@property (assign,nonatomic) int waveLength;//** 2 UIBezierPaths = 1 wavelength
+@property (assign,nonatomic) int finalX;
+
+@property (strong,nonatomic) CAKeyframeAnimation *waveCrestAnimation;
+
 @end
 
 @implementation BAFluidView
+
+
+#pragma mark - Lifecycle
 
 -  (id)initWithFrame:(CGRect)aRect maxAmplitude:(int)aMaxAmplitude minAmplitude:(int)aMinAmplitude amplitudeIncrement:(int)aAmplitudeIncrement
 {
@@ -52,14 +58,13 @@
         
     if (self)
     {
-        [self defaultConfiguration];
+        [self initialize];
         
         //setting custom wave properties
-        maxAmplitude = aMaxAmplitude;
-        minAmplitude = aMinAmplitude;
-        amplitudeIncrement = aAmplitudeIncrement;
-        amplitudeArray = [self createAmplitudeOptions];
-        [self addAnimations];
+        self.maxAmplitude = aMaxAmplitude;
+        self.minAmplitude = aMinAmplitude;
+        self.amplitudeIncrement = aAmplitudeIncrement;
+        self.amplitudeArray = [self createAmplitudeOptions];
     }
     return self;
 }
@@ -70,14 +75,14 @@
     
     if (self)
     {
-        [self defaultConfiguration];
+        [self initialize];
         
         //setting custom wave properties
-        maxAmplitude = aMaxAmplitude;
-        minAmplitude = aMinAmplitude;
-        amplitudeIncrement = aAmplitudeIncrement;
-        amplitudeArray = [self createAmplitudeOptions];
-        startElevation = aStartElevation;
+        self.maxAmplitude = aMaxAmplitude;
+        self.minAmplitude = aMinAmplitude;
+        self.amplitudeIncrement = aAmplitudeIncrement;
+        self.amplitudeArray = [self createAmplitudeOptions];
+        self.startElevation = aStartElevation;
     }
     return self;
 }
@@ -89,7 +94,7 @@
     
     if (self)
     {
-        [self defaultConfiguration];
+        [self initialize];
         
     }
     return self;
@@ -101,182 +106,195 @@
     
     if (self)
     {
-        [self defaultConfiguration];
-        startElevation = aStartElevation;        
+        [self initialize];
+        self.startElevation = aStartElevation;
     }
     return self;
 }
 
--( void) defaultConfiguration {
+- (id)initWithCoder:(NSCoder *)aDecoder {
     
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
+        [self initialize];
+    }
+    return self;
+}
+
+#pragma mark - Public
+
+- (void)initialize {
+        
     //find root view - the waves look weird if you go only by the size of the container
-    rootView = [self.window.subviews objectAtIndex:0];
+    self.rootView = [self.window.subviews objectAtIndex:0];
+    
     // create the wave layer and make it blue
     self.clipsToBounds = YES;
-    lineLayer = [CAShapeLayer layer];
-    lineLayer.fillColor = [[Util UIColorFromHex:0x6BB9F0] CGColor];
-    lineLayer.strokeColor = [[Util UIColorFromHex:0x6BB9F0] CGColor];
+    self.lineLayer = [CAShapeLayer layer];
+    self.lineLayer.fillColor = [[Util UIColorFromHex:0x6BB9F0] CGColor];
+    self.lineLayer.strokeColor = [[Util UIColorFromHex:0x6BB9F0] CGColor];
 
     //default wave properties
     self.fillAutoReverse = YES;
     self.fillRepeatCount = HUGE_VALF;
-    amplitudeIncrement = 5;
-    maxAmplitude = 40;
-    minAmplitude = 5;
-    startingAmplitude = maxAmplitude;
-    waveLength = CGRectGetWidth(rootView.frame);
-    startElevation = @0;
-    finalX = 2*waveLength;
+    self.amplitudeIncrement = 5;
+    self.maxAmplitude = 40;
+    self.minAmplitude = 5;
+    self.startingAmplitude = self.maxAmplitude;
+    self.waveLength = CGRectGetWidth(self.rootView.frame);
+    self.startElevation = @0;
+    self.finalX = 2*self.waveLength;
     
     //available amplitudes
-    amplitudeArray = [NSArray arrayWithArray:[self createAmplitudeOptions]];
+    self.amplitudeArray = [NSArray arrayWithArray:[self createAmplitudeOptions]];
     
-    //creating a linelanyer frame
-    lineLayer.anchorPoint= CGPointMake(0, 0);
-    CGRect frame = CGRectMake(0, CGRectGetHeight(self.frame), finalX, CGRectGetHeight(rootView.frame));
-    lineLayer.frame = frame;
+    //creating a linelayer frame
+    self.lineLayer.anchorPoint= CGPointMake(0, 0);
+    CGRect frame = CGRectMake(0, CGRectGetHeight(self.frame), self.finalX, CGRectGetHeight(self.rootView.frame));
+    self.lineLayer.frame = frame;
     
-    //
-    fillLevel = @0.0;
+    //fill level
+    self.initialFill = YES;
+    self.fillLevel = @0.0;
 }
 
-- (void) setFillColor:(UIColor *)fillColor{
+- (void)setFillColor:(UIColor *)fillColor{
     _fillColor = fillColor;
-    lineLayer.fillColor = [fillColor CGColor];
+    self.lineLayer.fillColor = [fillColor CGColor];
 }
 
-- (void) setStrokeColor:(UIColor *)strokeColor{
+- (void)setStrokeColor:(UIColor *)strokeColor{
     _strokeColor = strokeColor;
-    lineLayer.strokeColor = [strokeColor CGColor];
+    self.lineLayer.strokeColor = [strokeColor CGColor];
 }
 
-- (void) setLineWidth:(float)lineWidth{
+- (void)setLineWidth:(CGFloat)lineWidth{
     _lineWidth = lineWidth;
-    lineLayer.lineWidth = lineWidth;
+    self.lineLayer.lineWidth = lineWidth;
 }
 
-- (void) setFillAutoReverse:(BOOL)fillAutoReverse {
+- (void)setFillAutoReverse:(BOOL)fillAutoReverse {
     _fillAutoReverse = fillAutoReverse;
 }
 
-- (void) setFillRepeatCount:(float)fillRepeatCount {
+- (void)setFillRepeatCount:(CGFloat)fillRepeatCount {
     _fillRepeatCount= fillRepeatCount;
 }
 
-- (void) startAnimation {
-    [self addAnimations];
-}
-
--(void)addAnimations {
-    startingAmplitude = maxAmplitude;
+- (void)startAnimation {
+    self.startingAmplitude = self.maxAmplitude;
     
     //Phase Shift Animation
     CAKeyframeAnimation *horizontalAnimation =
     [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
-    horizontalAnimation.values = @[@(lineLayer.position.x),@(-finalX + waveLength)];
-    horizontalAnimation.additive = true;
+    horizontalAnimation.values = @[@(self.lineLayer.position.x),@(-self.finalX + self.waveLength)];
     horizontalAnimation.duration = 1.0;
     horizontalAnimation.repeatCount = HUGE;
-    horizontalAnimation.calculationMode = @"paced";
-    [lineLayer addAnimation:horizontalAnimation forKey:@"horizontalAnimation"];
+    [self.lineLayer addAnimation:horizontalAnimation forKey:@"horizontalAnimation"];
 
     //Wave Crest Animations
-    waveCrestAnimation = [CAKeyframeAnimation animationWithKeyPath:@"path"];
-    waveCrestAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    waveCrestAnimation.values = [self getBezierPathValues];
-    waveCrestAnimation.duration = 0.5;
-    waveCrestAnimation.removedOnCompletion = NO;
-    waveCrestAnimation.fillMode = kCAFillModeForwards;
-    waveCrestAnimation.delegate = self;
+    self.waveCrestAnimation = [CAKeyframeAnimation animationWithKeyPath:@"path"];
+    self.waveCrestAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    self.waveCrestAnimation.values = [self getBezierPathValues];
+    self.waveCrestAnimation.duration = 0.5;
+    self.waveCrestAnimation.removedOnCompletion = NO;
+    self.waveCrestAnimation.fillMode = kCAFillModeForwards;
+    self.waveCrestAnimation.delegate = self;
     [self updateWaveSegmentAnimation];
 
-    //fill level
-    [self fillTo:fillLevel];
-
     //add sublayer to view
-    [self.layer addSublayer:lineLayer];
+    [self.layer addSublayer:self.lineLayer];
 }
 
--(void)keepStationary{
-        [lineLayer removeAnimationForKey:@"verticalAnimation"];
+- (void)keepStationary {
+        [self.lineLayer removeAnimationForKey:@"verticalAnimation"];
 }
 
--(void)fillTo:(NSNumber*)percentage{
-    fillLevel = percentage;
+- (void)fillTo:(NSNumber*)fillPercentage {
+    self.fillLevel = fillPercentage;
 
     CAKeyframeAnimation *verticalAnimation =
     [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
     float finalPosition;
-    finalPosition = (1.0 - [percentage doubleValue])*CGRectGetHeight(self.frame);
+    finalPosition = (1.0 - [fillPercentage doubleValue])*CGRectGetHeight(self.frame);
     
  
     //bit hard to define a hard endpoint with the dynamic waves
-    if ([fillLevel  isEqual: @1.0]){
-        finalPosition = finalPosition - 2*maxAmplitude;
+    if ([self.fillLevel  isEqual: @1.0]){
+        finalPosition = finalPosition - 2*self.maxAmplitude;
     }
-    else if ([fillLevel doubleValue] > 0.98) {
-        finalPosition = finalPosition - maxAmplitude;
+    else if ([self.fillLevel doubleValue] > 0.98) {
+        finalPosition = finalPosition - self.maxAmplitude;
     }
     
 
-    [CATransaction begin];
-    verticalAnimation.values = @[@(lineLayer.position.y),@(finalPosition)];
-    verticalAnimation.duration = 7*[percentage doubleValue];
+    //fill animation
+    //the animation glitches because the horizontal x of the layer is never in the same spot at the end of the animation. We can use the presentation layer to get the current x. This isn't what the presentation layer is for, but can't find a way to make a smooth transition.
+    CALayer *initialLayer = self.lineLayer;
+    if (!self.initialFill) {
+        initialLayer = self.lineLayer.presentationLayer;
+    }
+
+    verticalAnimation.values = @[@(initialLayer.position.y),@(finalPosition)];
+    verticalAnimation.duration = 7*[fillPercentage doubleValue];
     verticalAnimation.autoreverses = self.fillAutoReverse;
     verticalAnimation.repeatCount = self.fillRepeatCount;
     verticalAnimation.removedOnCompletion = NO;
     verticalAnimation.fillMode = kCAFillModeForwards;
-    [CATransaction setCompletionBlock:^{
-        lineLayer.position = CGPointMake(lineLayer.position.x, finalPosition);
-    }];
-    [lineLayer addAnimation:verticalAnimation forKey:@"verticalAnimation"];
-    [CATransaction commit];
+    [self.lineLayer addAnimation:verticalAnimation forKey:@"verticalAnimation"];
+    
+    self.initialFill = NO;
 
 }
 
--(void) updateWaveSegmentAnimation{
+- (void)updateWaveSegmentAnimation {
+    
     //Wave Crest animation
     [CATransaction begin];
-    [lineLayer removeAnimationForKey:@"waveSegmentAnimation"];
-    waveCrestAnimation.values = [self getBezierPathValues];
+    [self.lineLayer removeAnimationForKey:@"waveSegmentAnimation"];
+    self.waveCrestAnimation.values = [self getBezierPathValues];
     [CATransaction setCompletionBlock:^{
+        //keeps it repeating but also changing in wave size
         [self updateWaveSegmentAnimation];
     }];
-    [lineLayer addAnimation:waveCrestAnimation forKey:@"waveSegmentAnimation"];
+    [self.lineLayer addAnimation:self.waveCrestAnimation forKey:@"waveSegmentAnimation"];
     [CATransaction commit];
 }
 
-- (NSArray*) getBezierPathValues{
+- (NSArray*)getBezierPathValues {
     //creating wave starting point
     CGPoint startPoint;
-    if (startElevation) {
-        startPoint = CGPointMake(CGRectGetMinX(self.frame), ((1 - [startElevation floatValue]/100))*CGRectGetHeight(self.frame));
+    if (self.startElevation) {
+        startPoint = CGPointMake(CGRectGetMinX(self.frame), ((1 - [self.startElevation floatValue]/100))*CGRectGetHeight(self.frame));
     }
     else{
         startPoint = CGPointMake(CGRectGetMinX(self.frame), CGRectGetHeight(self.frame));
     }
     
-    startPoint = CGPointMake(0, maxAmplitude);
+    startPoint = CGPointMake(0, self.maxAmplitude);
+    
     //grabbing random amplitude to shrink/grow to
     NSNumber *index = [NSNumber numberWithInt:arc4random_uniform(7)];
     
-    int finalAmplitude = [[amplitudeArray objectAtIndex:[index intValue]] intValue];
+    int finalAmplitude = [[self.amplitudeArray objectAtIndex:[index intValue]] intValue];
     NSMutableArray *values = [[NSMutableArray alloc] init];
     
     //shrinking
-    if (startingAmplitude >= finalAmplitude) {
-        for (int j = startingAmplitude; j >= finalAmplitude; j-=amplitudeIncrement) {
+    if (self.startingAmplitude >= finalAmplitude) {
+        for (int j = self.startingAmplitude; j >= finalAmplitude; j-=self.amplitudeIncrement) {
             //create a UIBezierPath along distance
             UIBezierPath* line = [UIBezierPath bezierPath];
             [line moveToPoint:startPoint];
             int tempAmplitude = j;
-            for (int i = waveLength/2; i <= finalX; i+=waveLength/2) {
-                [line addQuadCurveToPoint:CGPointMake(startPoint.x + i,startPoint.y) controlPoint:CGPointMake(startPoint.x + i -(waveLength/4),startPoint.y + tempAmplitude)];
+            for (int i = self.waveLength/2; i <= self.finalX; i+=self.waveLength/2) {
+                [line addQuadCurveToPoint:CGPointMake(startPoint.x + i,startPoint.y) controlPoint:CGPointMake(startPoint.x + i -(self.waveLength/4),startPoint.y + tempAmplitude)];
                 tempAmplitude = -tempAmplitude;
             }
             
-            [line addLineToPoint:CGPointMake(finalX, CGRectGetHeight(rootView.frame) - maxAmplitude)];
-            [line addLineToPoint:CGPointMake(0, CGRectGetHeight(rootView.frame) - maxAmplitude)];
+            [line addLineToPoint:CGPointMake(self.finalX, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
+            [line addLineToPoint:CGPointMake(0, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
             [line closePath];
             
             [values addObject:(id)line.CGPath];
@@ -286,19 +304,19 @@
     
     //growing
     else{
-        for (int j = startingAmplitude; j <= finalAmplitude; j+=amplitudeIncrement) {
+        for (int j = self.startingAmplitude; j <= finalAmplitude; j+=self.amplitudeIncrement) {
             //create a UIBezierPath along distance
             UIBezierPath* line = [UIBezierPath bezierPath];
             [line moveToPoint:startPoint];
 
             int tempAmplitude = j;
-            for (int i = waveLength/2; i <= finalX; i+=waveLength/2) {
-                [line addQuadCurveToPoint:CGPointMake(startPoint.x + i,startPoint.y) controlPoint:CGPointMake(startPoint.x + i -(waveLength/4),startPoint.y + tempAmplitude)];
+            for (int i = self.waveLength/2; i <= self.finalX; i+=self.waveLength/2) {
+                [line addQuadCurveToPoint:CGPointMake(startPoint.x + i,startPoint.y) controlPoint:CGPointMake(startPoint.x + i -(self.waveLength/4),startPoint.y + tempAmplitude)];
                 tempAmplitude = -tempAmplitude;
             }
             
-            [line addLineToPoint:CGPointMake(finalX, CGRectGetHeight(rootView.frame) - maxAmplitude)];
-            [line addLineToPoint:CGPointMake(0, CGRectGetHeight(rootView.frame) - maxAmplitude)];
+            [line addLineToPoint:CGPointMake(self.finalX, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
+            [line addLineToPoint:CGPointMake(0, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
             [line closePath];
             
             [values addObject:(id)line.CGPath];
@@ -307,19 +325,18 @@
         
     }
     
-    startingAmplitude = finalAmplitude;
+    self.startingAmplitude = finalAmplitude;
     
     return [NSArray arrayWithArray:values];
     
 }
 
-- (NSArray*)createAmplitudeOptions{
+- (NSArray*)createAmplitudeOptions {
     NSMutableArray *tempAmplitudeArray = [[NSMutableArray alloc] init];
-    for (int i = minAmplitude; i <= maxAmplitude; i+= amplitudeIncrement) {
+    for (int i = self.minAmplitude; i <= self.maxAmplitude; i+= self.amplitudeIncrement) {
         [tempAmplitudeArray addObject:[NSNumber numberWithInt:i]];
     }
     return tempAmplitudeArray;
 }
-
 
 @end

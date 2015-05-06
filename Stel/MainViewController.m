@@ -13,8 +13,6 @@
 
 @interface MainViewController ()
 
-@property BAFluidView *fluidView;
-@property TotalBottlesView *bottleProgressView;
 @property BOOL startUp;
 
 @end
@@ -30,6 +28,12 @@
     [self addViewShadow:self.bluetoothButton];
     [self addViewShadow:self.settingsButton];
     [self addConstraints];
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(orientationChanged:)
+     name:UIDeviceOrientationDidChangeNotification
+     object:[UIDevice currentDevice]];
 
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -40,21 +44,20 @@
         [self.totalBottlesView configure];
         [self.totalBottlesView performSelector:@selector(animateAllBottles) withObject:nil afterDelay:1.0];
 
-        [self.waterBottleView defaultConfiguration];
-        [self.waterBottleView fillTo:@0.99];
+        [self.waterBottleView initialize];
         self.waterBottleView.fillAutoReverse = NO;
         self.waterBottleView.fillRepeatCount = 0;
+        [self.waterBottleView fillTo:@0.6];
         [self.waterBottleView startAnimation];
-        UIImage *maskingImage = [UIImage imageNamed:@"waterBottleImage"];
-        CALayer *maskingLayer = [CALayer layer];
-        maskingLayer.frame = self.waterBottleView.bounds;
-        maskingLayer.contents = (id)[maskingImage CGImage];
-        self.waterBottleView.layer.mask = maskingLayer;
         
         self.startUp = NO;
-
-
     }
+    
+    UIImage *maskingImage = [UIImage imageNamed:@"waterBottleImage"];
+    CALayer *maskingLayer = [CALayer layer];
+    maskingLayer.frame = self.waterBottleView.bounds;
+    maskingLayer.contents = (id)[maskingImage CGImage];
+    self.waterBottleView.layer.mask = maskingLayer;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +74,31 @@
     view.layer.shadowRadius = 10.0f;
     view.layer.shadowOpacity = 0.7;
     
+}
+
+- (void) orientationChanged:(NSNotification *)note
+{
+    UIDevice * device = note.object;
+    switch(device.orientation)
+    {
+        case UIDeviceOrientationPortrait:
+            /* start special animation */
+            break;
+            
+        case UIDeviceOrientationPortraitUpsideDown:
+            /* start special animation */
+            break;
+            
+        default:
+            break;
+    };
+    
+    
+    [self.waterBottleView initialize];
+    self.waterBottleView.fillAutoReverse = NO;
+    self.waterBottleView.fillRepeatCount = 0;
+    [self.waterBottleView fillTo:@0.6];
+    [self.waterBottleView startAnimation];
 }
 
 #pragma mark - Layout Contraints
@@ -115,18 +143,23 @@
                                   attribute:NSLayoutAttributeRight multiplier:1.0 constant:-20]];
     [self.view addConstraints:settingsButtonConstraints];
     
-    //waterbottle container constraints
+    //waterbottle constraints
     self.waterBottleView.translatesAutoresizingMaskIntoConstraints = NO;
     NSMutableArray *waterBottleConstraints = [NSMutableArray array];
     [waterBottleConstraints addObject:[AutoLayoutUtil centerXWithSuperViewConstraint:self.waterBottleView]];
+    [waterBottleConstraints addObject:[AutoLayoutUtil aspectRatioConstraint:self.waterBottleView width:1 height:3]];
     [waterBottleConstraints addObject:
-    [NSLayoutConstraint constraintWithItem:self.waterBottleView attribute:NSLayoutAttributeWidth
-                                 relatedBy:NSLayoutRelationEqual toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:150]];
+     [NSLayoutConstraint constraintWithItem:self.waterBottleView attribute:NSLayoutAttributeTop
+                                  relatedBy:NSLayoutRelationEqual toItem:self.view
+                                  attribute:NSLayoutAttributeTop multiplier:1.0 constant:60]];
+    [waterBottleConstraints addObject:
+     [NSLayoutConstraint constraintWithItem:self.waterBottleView attribute:NSLayoutAttributeTop
+                                  relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.view
+                                  attribute:NSLayoutAttributeTop multiplier:1.0 constant:60]];
     [waterBottleConstraints addObject:[AutoLayoutUtil aspectRatioConstraint:self.waterBottleView width:1 height:3]];
     [self.view addConstraints:waterBottleConstraints];
     
-    //waterbottle total container constraints
+    //total bottles constraints
     self.totalBottlesView.translatesAutoresizingMaskIntoConstraints = NO;
     NSMutableArray *totalBottlesConstraints = [NSMutableArray array];
     [totalBottlesConstraints addObject:[AutoLayoutUtil centerXWithSuperViewConstraint:self.waterBottleView]];
@@ -157,4 +190,7 @@
     [self.view addConstraints:totalBottlesConstraints];
 }
 
+- (IBAction)SettingsButtonPressed:(id)sender {
+    [self.waterBottleView fillTo:@0.3];
+}
 @end

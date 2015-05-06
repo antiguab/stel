@@ -28,15 +28,17 @@
 //configuratble properties
 @property(nonatomic,strong)UIColor *fillColor;
 @property(nonatomic,strong)UIColor *strokeColor;
-@property(nonatomic,assign)float fillRepeatCount;
-@property(nonatomic,assign)float lineWidth;
+@property(nonatomic,assign)CGFloat fillRepeatCount;
+@property(nonatomic,assign)CGFloat lineWidth;
 @property(nonatomic,assign)BOOL fillAutoReverse;
 
 - (id)initWithFrame:(CGRect)aRect maxAmplitude:(int)maxAmplitude minAmplitude:(int)minAmplitude amplitudeIncrement:(int)amplitudeIncrement;
 - (id)initWithFrame:(CGRect)aRect startElevation:(NSNumber*)aStartElevation;
--  (id)initWithFrame:(CGRect)aRect maxAmplitude:(int)aMaxAmplitude minAmplitude:(int)aMinAmplitude amplitudeIncrement:(int)aAmplitudeIncrement startElevation:(NSNumber*)aStartElevation;
--(void)fillTo:(NSNumber*)percentage;
--(void)keepStationary;
--(void) startAnimation;
-- (void) defaultConfiguration;
+- (id)initWithFrame:(CGRect)aRect maxAmplitude:(int)aMaxAmplitude minAmplitude:(int)aMinAmplitude amplitudeIncrement:(int)aAmplitudeIncrement startElevation:(NSNumber*)aStartElevation;
+
+- (void)fillTo:(NSNumber*)fillPercentage;
+- (void)keepStationary;
+- (void)startAnimation;
+- (void)initialize;
+
 @end
