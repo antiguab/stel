@@ -21,5 +21,6 @@ typedef void(^completionBlock)(BOOL finished);
 @property (strong, nonatomic) IBOutlet UIVisualEffectView *blurView;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
+- (IBAction)SettingsButtonPressed:(id)sender;
 @end
 
