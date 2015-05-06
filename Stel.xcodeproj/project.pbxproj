@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02048E71AF873EE0017AC47 /* AutoLayoutUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D02048E61AF873EE0017AC47 /* AutoLayoutUtil.m */; };
 		D07DCD9C1AEF459000255FEF /* TotalBottlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07DCD9B1AEF459000255FEF /* TotalBottlesView.m */; };
 		D0F528F41AEAE31400FF2D37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F31AEAE31400FF2D37 /* main.m */; };
 		D0F528F71AEAE31400FF2D37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F61AEAE31400FF2D37 /* AppDelegate.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D02048E51AF873EE0017AC47 /* AutoLayoutUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutUtil.h; sourceTree = "<group>"; };
+		D02048E61AF873EE0017AC47 /* AutoLayoutUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutUtil.m; sourceTree = "<group>"; };
 		D07DCD9A1AEF459000255FEF /* TotalBottlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalBottlesView.h; sourceTree = "<group>"; };
 		D07DCD9B1AEF459000255FEF /* TotalBottlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalBottlesView.m; sourceTree = "<group>"; };
 		D0F528EE1AEAE31400FF2D37 /* Stel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +119,8 @@
 				D0F529271AEB100B00FF2D37 /* Util.m */,
 				D0F528FB1AEAE31400FF2D37 /* MainViewController.h */,
 				D0F528FC1AEAE31400FF2D37 /* MainViewController.m */,
+				D02048E51AF873EE0017AC47 /* AutoLayoutUtil.h */,
+				D02048E61AF873EE0017AC47 /* AutoLayoutUtil.m */,
 				D0F529011AEAE31400FF2D37 /* Images.xcassets */,
 				D0F529031AEAE31400FF2D37 /* LaunchScreen.xib */,
 				D0F528F81AEAE31400FF2D37 /* Stel.xcdatamodeld */,
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02048E71AF873EE0017AC47 /* AutoLayoutUtil.m in Sources */,
 				D0F528F71AEAE31400FF2D37 /* AppDelegate.m in Sources */,
 				D0F529211AEAF9CF00FF2D37 /* TitleView.m in Sources */,
 				D07DCD9C1AEF459000255FEF /* TotalBottlesView.m in Sources */,

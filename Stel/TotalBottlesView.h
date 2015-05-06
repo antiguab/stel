@@ -10,6 +10,7 @@
 
 @interface TotalBottlesView : UIView
 
+- (void)configure;
 -(void)animateAllBottles;
 
 @end

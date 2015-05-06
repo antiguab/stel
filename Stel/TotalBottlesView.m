@@ -17,30 +17,11 @@
 
 #pragma mark - Lifecycle
 
-- (id)initWithFrame:(CGRect)aRect {
-    self = [super initWithFrame:aRect];
-    
-    if (self) {
-        [self configure];
-    }
-    
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self configure];
-    }
-    
-    return self;
-}
-
 -(void)configure{
     NSMutableArray *tempBottlesArray = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < 10; i++) {
-        CGRect frame = CGRectMake(i*CGRectGetWidth(self.frame)/10, CGRectGetMinY(self.frame), CGRectGetWidth(self.frame)/10, CGRectGetHeight(self.frame));
+        CGRect frame = CGRectMake(i*CGRectGetWidth(self.frame)/10, 0, CGRectGetWidth(self.frame)/10, CGRectGetHeight(self.frame));
         CAShapeLayer *bottle = [[CAShapeLayer alloc] init];
         bottle.backgroundColor = [UIColor whiteColor].CGColor;
         bottle.frame = frame;
@@ -63,11 +44,13 @@
     
 }
 
+
+#pragma mark - Public
+
 - (void)animateAllBottles {
     for (int i = 0; i < self.bottlesArray.count; i++) {
-        
+
         CAShapeLayer *bottle = self.bottlesArray[i];
-        
         CGFloat startingPoint = (i*.05);
 
         CABasicAnimation *opacityAnimation;
@@ -115,6 +98,8 @@
 
     }
 }
+
+#pragma mark - Private
 
 - (void)animatePercentageOfBottlesDrank:(int)percentageDrank{
     
