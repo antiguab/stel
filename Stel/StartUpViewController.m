@@ -8,6 +8,7 @@
 
 #import "StartUpViewController.h"
 #import "MainViewController.h"
+#import "AutoLayoutUtil.h"
 #import "AppDelegate.h"
 
 @interface StartUpViewController ()
@@ -24,11 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addConstraints];
 }
-
 - (void)viewDidLayoutSubviews{
+
     [self.titleView animateTitle:^(BOOL finished) {
-        [self dropTitle];
+                    [self dropTitle];
     }];
 }
 
@@ -64,4 +66,29 @@
     [CATransaction commit];
 }
 
+#pragma mark - Layout Contraints
+
+- (void) addConstraints {
+    self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //backgroundview constraints
+    NSMutableArray *backgroundImageViewConstraints = [AutoLayoutUtil centerAndSizeToSuperViewConstraints:self.backgroundImageView];
+    [self.view addConstraints:backgroundImageViewConstraints];
+    
+    
+    //titleview contraints
+    NSMutableArray *titleViewConstraints = [[NSMutableArray alloc] init];
+    [titleViewConstraints addObject:[AutoLayoutUtil centerXWithSuperViewConstraint:self.titleView]];
+    [titleViewConstraints addObject:[AutoLayoutUtil widthEqualToSuperViewConstraint:self.titleView]];
+    [titleViewConstraints addObject:
+     [NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeHeight
+                                  relatedBy:NSLayoutRelationEqual toItem:nil
+                                  attribute:NSLayoutAttributeHeight multiplier:0.0 constant:self.titleView.frame.size.height]];
+    [titleViewConstraints addObject:
+     [NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeBottom
+                                  relatedBy:NSLayoutRelationEqual toItem:self.view
+                                  attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-30]];
+    [self.view addConstraints:titleViewConstraints];
+}
 @end
