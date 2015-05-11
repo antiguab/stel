@@ -126,7 +126,6 @@
 #pragma mark - Public
 
 - (void)initialize {
-        
     //find root view - the waves look weird if you go only by the size of the container
     self.rootView = [self.window.subviews objectAtIndex:0];
     
@@ -293,8 +292,8 @@
                 tempAmplitude = -tempAmplitude;
             }
             
-            [line addLineToPoint:CGPointMake(self.finalX, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
-            [line addLineToPoint:CGPointMake(0, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
+            [line addLineToPoint:CGPointMake(self.finalX, 2*CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
+            [line addLineToPoint:CGPointMake(0, 2*CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
             [line closePath];
             
             [values addObject:(id)line.CGPath];
@@ -315,8 +314,8 @@
                 tempAmplitude = -tempAmplitude;
             }
             
-            [line addLineToPoint:CGPointMake(self.finalX, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
-            [line addLineToPoint:CGPointMake(0, CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
+            [line addLineToPoint:CGPointMake(self.finalX, 2*CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
+            [line addLineToPoint:CGPointMake(0, 2*CGRectGetHeight(self.rootView.frame) - self.maxAmplitude)];
             [line closePath];
             
             [values addObject:(id)line.CGPath];

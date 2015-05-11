@@ -7,7 +7,6 @@
 //
 
 #import "StartUpViewController.h"
-#import "MainViewController.h"
 #import "AutoLayoutUtil.h"
 #import "AppDelegate.h"
 

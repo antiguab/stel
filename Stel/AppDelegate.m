@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "StartUpViewController.h"
-#import "MainViewController.h"
+#import "TotalConsumedTodayViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,7 +22,7 @@
     
     //create the start up animation
     StartUpViewController *startUpViewController = [[StartUpViewController alloc] initWithNibName:@"StartUpViewController" bundle:nil];
-    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    self.mainViewController = [[TotalConsumedTodayViewController alloc] initWithNibName:@"TotalConsumedTodayViewController" bundle:nil];
     
     //add Root Nav Controller with hidden bar
     self.navController = [[UINavigationController alloc] initWithRootViewController:startUpViewController];
