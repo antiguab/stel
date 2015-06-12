@@ -20,26 +20,27 @@
 -(void)configure{
     NSMutableArray *tempBottlesArray = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < 10; i++) {
-        CGRect frame = CGRectMake(i*CGRectGetWidth(self.frame)/10, 0, CGRectGetWidth(self.frame)/10, CGRectGetHeight(self.frame));
-        CAShapeLayer *bottle = [[CAShapeLayer alloc] init];
-        bottle.backgroundColor = [UIColor whiteColor].CGColor;
-        bottle.frame = frame;
-        
-        UIImage *maskingImage = [UIImage imageNamed:@"waterBottleWholeImage"];
-        CALayer *maskingLayer = [CALayer layer];
-        
-        maskingLayer.frame = bottle.bounds;
-        maskingLayer.transform = CATransform3DMakeScale(0.7, 0.7, 1.0);
-
-        maskingLayer.contents = (id)[maskingImage CGImage];
-        bottle.mask = maskingLayer;
-        
-        bottle.opacity = 0.0f;
-        [tempBottlesArray addObject:bottle];
-        
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 9; j++) {
+            CGRect frame = CGRectMake(j*CGRectGetWidth(self.frame)/8, i*CGRectGetHeight(self.frame)/8 + 8, CGRectGetWidth(self.frame)/8, CGRectGetHeight(self.frame)/8);
+            CAShapeLayer *bottle = [[CAShapeLayer alloc] init];
+            bottle.backgroundColor = [UIColor whiteColor].CGColor;
+            bottle.frame = frame;
+            
+            UIImage *maskingImage = [UIImage imageNamed:@"waterBottleWhiteWholeImage"];
+            CALayer *maskingLayer = [CALayer layer];
+            
+            maskingLayer.frame = bottle.bounds;
+            maskingLayer.transform = CATransform3DMakeScale(0.7, 1.0, 1.0);
+            
+            maskingLayer.contents = (id)[maskingImage CGImage];
+            bottle.mask = maskingLayer;
+            
+            bottle.opacity = 0.0f;
+            [tempBottlesArray addObject:bottle];
+        }
     }
-
+    
     self.bottlesArray = [NSArray arrayWithArray:tempBottlesArray];
     
 }
@@ -86,11 +87,11 @@
         
         NSString *groupKey = [NSString stringWithFormat:@"animationBottle%lu", currentBottleIndex];
         [CATransaction begin];
-        if (i == self.bottlesArray.count -1) {
-            [CATransaction setCompletionBlock:^{
-                [self animatePercentageOfBottlesDrank:67];
-            }];
-        }
+//        if (i == self.bottlesArray.count -1) {
+//            [CATransaction setCompletionBlock:^{
+//                [self animatePercentageOfBottlesDrank:67];
+//            }];
+//        }
         
         [bottle addAnimation:group forKey:groupKey];
         [CATransaction commit];

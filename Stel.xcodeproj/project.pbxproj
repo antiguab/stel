@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0031CE41B045A9600A46032 /* Lovelo Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0031CE11B045A9600A46032 /* Lovelo Black.otf */; };
+		D0031CE51B045A9600A46032 /* Lovelo Line Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0031CE21B045A9600A46032 /* Lovelo Line Bold.otf */; };
+		D0031CE61B045A9600A46032 /* Lovelo Line Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0031CE31B045A9600A46032 /* Lovelo Line Light.otf */; };
 		D00C45EC1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00C45EA1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.m */; };
 		D00C45ED1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00C45EB1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.xib */; };
+		D01C2A9A1B2B4D2B00EDA966 /* MascotUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01C2A991B2B4D2B00EDA966 /* MascotUIView.m */; };
+		D01C2A9C1B2B518E00EDA966 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01C2A9B1B2B518E00EDA966 /* Images.xcassets */; };
+		D01C2A9E1B2B51C100EDA966 /* MascotImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01C2A9D1B2B51C100EDA966 /* MascotImages.xcassets */; };
 		D02048E71AF873EE0017AC47 /* AutoLayoutUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D02048E61AF873EE0017AC47 /* AutoLayoutUtil.m */; };
-		D0736E601AFC1A53003B0914 /* placeholderAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = D0736E5F1AFC1A53003B0914 /* placeholderAnimation.gif */; };
+		D02957AF1B01B2AD00706862 /* ProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D02957AE1B01B2AD00706862 /* ProgressBarView.m */; };
 		D07DCD9C1AEF459000255FEF /* TotalBottlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07DCD9B1AEF459000255FEF /* TotalBottlesView.m */; };
 		D0F528F41AEAE31400FF2D37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F31AEAE31400FF2D37 /* main.m */; };
 		D0F528F71AEAE31400FF2D37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F61AEAE31400FF2D37 /* AppDelegate.m */; };
 		D0F528FA1AEAE31400FF2D37 /* Stel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F528F81AEAE31400FF2D37 /* Stel.xcdatamodeld */; };
 		D0F528FD1AEAE31400FF2D37 /* CurrentBottleStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F528FC1AEAE31400FF2D37 /* CurrentBottleStatusViewController.m */; };
-		D0F529021AEAE31400FF2D37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F529011AEAE31400FF2D37 /* Images.xcassets */; };
 		D0F529051AEAE31400FF2D37 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F529031AEAE31400FF2D37 /* LaunchScreen.xib */; };
 		D0F529111AEAE31400FF2D37 /* StelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F529101AEAE31400FF2D37 /* StelTests.m */; };
 		D0F5291F1AEAF9CF00FF2D37 /* StartUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5291A1AEAF9CF00FF2D37 /* StartUpViewController.xib */; };
@@ -38,12 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0031CE11B045A9600A46032 /* Lovelo Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lovelo Black.otf"; sourceTree = "<group>"; };
+		D0031CE21B045A9600A46032 /* Lovelo Line Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lovelo Line Bold.otf"; sourceTree = "<group>"; };
+		D0031CE31B045A9600A46032 /* Lovelo Line Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lovelo Line Light.otf"; sourceTree = "<group>"; };
 		D00C45E91AFC07CC00BFBA19 /* TotalConsumedTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalConsumedTodayViewController.h; sourceTree = "<group>"; };
 		D00C45EA1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalConsumedTodayViewController.m; sourceTree = "<group>"; };
 		D00C45EB1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TotalConsumedTodayViewController.xib; sourceTree = "<group>"; };
+		D01C2A981B2B4D2B00EDA966 /* MascotUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MascotUIView.h; sourceTree = "<group>"; };
+		D01C2A991B2B4D2B00EDA966 /* MascotUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MascotUIView.m; sourceTree = "<group>"; };
+		D01C2A9B1B2B518E00EDA966 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D01C2A9D1B2B51C100EDA966 /* MascotImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MascotImages.xcassets; sourceTree = "<group>"; };
 		D02048E51AF873EE0017AC47 /* AutoLayoutUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutUtil.h; sourceTree = "<group>"; };
 		D02048E61AF873EE0017AC47 /* AutoLayoutUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutUtil.m; sourceTree = "<group>"; };
-		D0736E5F1AFC1A53003B0914 /* placeholderAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = placeholderAnimation.gif; sourceTree = "<group>"; };
+		D02957AD1B01B2AD00706862 /* ProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBarView.h; sourceTree = "<group>"; };
+		D02957AE1B01B2AD00706862 /* ProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBarView.m; sourceTree = "<group>"; };
 		D07DCD9A1AEF459000255FEF /* TotalBottlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalBottlesView.h; sourceTree = "<group>"; };
 		D07DCD9B1AEF459000255FEF /* TotalBottlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalBottlesView.m; sourceTree = "<group>"; };
 		D0F528EE1AEAE31400FF2D37 /* Stel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +67,6 @@
 		D0F528F91AEAE31400FF2D37 /* Stel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stel.xcdatamodel; sourceTree = "<group>"; };
 		D0F528FB1AEAE31400FF2D37 /* CurrentBottleStatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentBottleStatusViewController.h; sourceTree = "<group>"; };
 		D0F528FC1AEAE31400FF2D37 /* CurrentBottleStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentBottleStatusViewController.m; sourceTree = "<group>"; };
-		D0F529011AEAE31400FF2D37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D0F529041AEAE31400FF2D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D0F5290A1AEAE31400FF2D37 /* StelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F5290F1AEAE31400FF2D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +126,10 @@
 				D0F5291B1AEAF9CF00FF2D37 /* StartUpViewController.m */,
 				D00C45E91AFC07CC00BFBA19 /* TotalConsumedTodayViewController.h */,
 				D00C45EA1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.m */,
+				D02957AD1B01B2AD00706862 /* ProgressBarView.h */,
+				D02957AE1B01B2AD00706862 /* ProgressBarView.m */,
+				D01C2A981B2B4D2B00EDA966 /* MascotUIView.h */,
+				D01C2A991B2B4D2B00EDA966 /* MascotUIView.m */,
 				D00C45EB1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.xib */,
 				D0F5291C1AEAF9CF00FF2D37 /* StartUpViewController.h */,
 				D0F5291D1AEAF9CF00FF2D37 /* TitleView.h */,
@@ -122,19 +138,22 @@
 				D07DCD9B1AEF459000255FEF /* TotalBottlesView.m */,
 				D0F528F51AEAE31400FF2D37 /* AppDelegate.h */,
 				D0F528F61AEAE31400FF2D37 /* AppDelegate.m */,
-				D0F529221AEB00ED00FF2D37 /* CurrentBottleStatusViewController.xib */,
 				D0F529241AEB100B00FF2D37 /* BAFluidView.h */,
 				D0F529251AEB100B00FF2D37 /* BAFluidView.m */,
 				D0F529261AEB100B00FF2D37 /* Util.h */,
 				D0F529271AEB100B00FF2D37 /* Util.m */,
 				D0F528FB1AEAE31400FF2D37 /* CurrentBottleStatusViewController.h */,
 				D0F528FC1AEAE31400FF2D37 /* CurrentBottleStatusViewController.m */,
+				D0F529221AEB00ED00FF2D37 /* CurrentBottleStatusViewController.xib */,
 				D02048E51AF873EE0017AC47 /* AutoLayoutUtil.h */,
 				D02048E61AF873EE0017AC47 /* AutoLayoutUtil.m */,
-				D0736E5F1AFC1A53003B0914 /* placeholderAnimation.gif */,
-				D0F529011AEAE31400FF2D37 /* Images.xcassets */,
+				D0031CE11B045A9600A46032 /* Lovelo Black.otf */,
+				D0031CE21B045A9600A46032 /* Lovelo Line Bold.otf */,
+				D0031CE31B045A9600A46032 /* Lovelo Line Light.otf */,
 				D0F529031AEAE31400FF2D37 /* LaunchScreen.xib */,
 				D0F528F81AEAE31400FF2D37 /* Stel.xcdatamodeld */,
+				D01C2A9B1B2B518E00EDA966 /* Images.xcassets */,
+				D01C2A9D1B2B51C100EDA966 /* MascotImages.xcassets */,
 				D0F528F11AEAE31400FF2D37 /* Supporting Files */,
 			);
 			path = Stel;
@@ -247,12 +266,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0736E601AFC1A53003B0914 /* placeholderAnimation.gif in Resources */,
 				D0F5291F1AEAF9CF00FF2D37 /* StartUpViewController.xib in Resources */,
+				D01C2A9C1B2B518E00EDA966 /* Images.xcassets in Resources */,
 				D0F529231AEB00ED00FF2D37 /* CurrentBottleStatusViewController.xib in Resources */,
 				D0F529051AEAE31400FF2D37 /* LaunchScreen.xib in Resources */,
 				D00C45ED1AFC07CD00BFBA19 /* TotalConsumedTodayViewController.xib in Resources */,
-				D0F529021AEAE31400FF2D37 /* Images.xcassets in Resources */,
+				D0031CE51B045A9600A46032 /* Lovelo Line Bold.otf in Resources */,
+				D0031CE41B045A9600A46032 /* Lovelo Black.otf in Resources */,
+				D01C2A9E1B2B51C100EDA966 /* MascotImages.xcassets in Resources */,
+				D0031CE61B045A9600A46032 /* Lovelo Line Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02048E71AF873EE0017AC47 /* AutoLayoutUtil.m in Sources */,
+				D02957AF1B01B2AD00706862 /* ProgressBarView.m in Sources */,
 				D0F528F71AEAE31400FF2D37 /* AppDelegate.m in Sources */,
 				D0F529211AEAF9CF00FF2D37 /* TitleView.m in Sources */,
 				D07DCD9C1AEF459000255FEF /* TotalBottlesView.m in Sources */,
@@ -281,6 +304,7 @@
 				D0F529201AEAF9CF00FF2D37 /* StartUpViewController.m in Sources */,
 				D0F528F41AEAE31400FF2D37 /* main.m in Sources */,
 				D0F529291AEB100B00FF2D37 /* Util.m in Sources */,
+				D01C2A9A1B2B4D2B00EDA966 /* MascotUIView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

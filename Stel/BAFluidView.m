@@ -237,7 +237,7 @@
     }
 
     verticalAnimation.values = @[@(initialLayer.position.y),@(finalPosition)];
-    verticalAnimation.duration = 7*[fillPercentage doubleValue];
+    verticalAnimation.duration = 3*[fillPercentage doubleValue];
     verticalAnimation.autoreverses = self.fillAutoReverse;
     verticalAnimation.repeatCount = self.fillRepeatCount;
     verticalAnimation.removedOnCompletion = NO;
